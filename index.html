@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bärbel Weber – Musikpädagogin & Kinderchorleiterin</title>
+<meta name="description" content="Musikpädagogin und Kinderchorleiterin. Lieder und Musicals für Kinder, Seminare und Workshops für Musiklehrkräfte.">
+<style>
+  @font-face {
+    font-family: 'Inter'; font-style: normal; font-weight: 400 600;
+    font-display: swap; src: url('fonts/InterVariable.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Fraunces'; font-style: normal; font-weight: 400 600;
+    font-display: swap; src: url('fonts/Fraunces.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Fraunces'; font-style: italic; font-weight: 400 600;
+    font-display: swap; src: url('fonts/Fraunces-Italic.woff2') format('woff2');
+  }
+  :root {
+    --paper: #FBF6EE;
+    --paper-2: #F4EADB;
+    --ink: #2E2A26;
+    --ink-soft: #5C544B;
+    --rose: #D98A7A;
+    --rose-deep: #C26B5A;
+    --leaf: #6E8B6A;
+    --gold: #E3B23C;
+    --line: #E0D3C0;
+    --max: 1080px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; line-height: 1.12; letter-spacing: -0.01em; }
+
+  a { color: var(--rose-deep); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- NAV ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251,246,238,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .brand {
+    font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600;
+    color: var(--ink); letter-spacing: -0.01em;
+  }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    color: var(--ink-soft); font-size: 0.92rem; font-weight: 500;
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--rose-deep); }
+  .nav-toggle { display: none; background: none; border: 0; cursor: pointer; font-size: 1.5rem; color: var(--ink); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    padding: 96px 0 88px;
+    background:
+      radial-gradient(900px 500px at 78% -10%, rgba(227,178,60,0.18), transparent 60%),
+      radial-gradient(700px 460px at 8% 120%, rgba(110,139,106,0.16), transparent 60%);
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center;
+  }
+  .hero-inner { max-width: 620px; }
+  .eyebrow {
+    display: inline-block; font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose-deep);
+    margin-bottom: 22px;
+  }
+  .hero h1 { font-size: clamp(2.4rem, 5vw, 4rem); margin-bottom: 24px; }
+  .hero h1 em { font-style: italic; color: var(--rose-deep); }
+  .hero p.lede { font-size: 1.18rem; color: var(--ink-soft); max-width: 540px; margin-bottom: 36px; }
+
+  .hero-photo { position: relative; }
+  .hero-photo img {
+    position: relative; z-index: 2; width: 100%; height: auto;
+    border-radius: 18px; box-shadow: 0 18px 44px rgba(46,42,38,0.18);
+    display: block;
+  }
+  .hero-photo .staff {
+    position: absolute; z-index: 1; top: -26px; right: -22px;
+    width: 240px; max-width: 70%; opacity: 0.85; pointer-events: none;
+  }
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-photo { max-width: 380px; }
+    .hero-photo .staff { display: none; }
+  }
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 13px 26px; border-radius: 999px;
+    font-weight: 600; font-size: 0.96rem; transition: transform 0.18s, box-shadow 0.18s;
+  }
+  .btn-primary { background: var(--rose-deep); color: #fff; box-shadow: 0 6px 18px rgba(194,107,90,0.32); }
+  .btn-primary:hover { transform: translateY(-2px); text-decoration: none; box-shadow: 0 10px 24px rgba(194,107,90,0.4); }
+  .btn-ghost { border: 1.5px solid var(--line); color: var(--ink); background: rgba(255,255,255,0.4); }
+  .btn-ghost:hover { border-color: var(--rose); text-decoration: none; }
+
+  /* singing-notes signature lives in .hero-photo .staff above */
+
+  /* ---------- SECTIONS ---------- */
+  section.block { padding: 84px 0; }
+  .section-head { max-width: 640px; margin-bottom: 48px; }
+  .section-head .eyebrow { margin-bottom: 14px; }
+  .section-head h2 { font-size: clamp(2rem, 4vw, 2.9rem); margin-bottom: 16px; }
+  .section-head p { color: var(--ink-soft); font-size: 1.08rem; }
+
+  .alt { background: var(--paper-2); }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: start; }
+  .about-text p { margin-bottom: 18px; color: var(--ink-soft); }
+  .about-text p:first-child { color: var(--ink); font-size: 1.12rem; }
+  .credentials {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 18px;
+    padding: 30px 28px;
+  }
+  .credentials h3 { font-size: 1.15rem; margin-bottom: 18px; }
+  .credentials ul { list-style: none; }
+  .credentials li {
+    padding: 11px 0 11px 26px; position: relative; font-size: 0.96rem; color: var(--ink-soft);
+    border-bottom: 1px solid var(--line);
+  }
+  .credentials li:last-child { border-bottom: 0; }
+  .credentials li::before {
+    content: "♪"; position: absolute; left: 0; color: var(--rose-deep); font-size: 1rem;
+  }
+  @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; gap: 36px; } }
+
+  /* ---------- COURSES ---------- */
+  .course-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .course {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 18px;
+    padding: 30px 28px; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    display: flex; flex-direction: column;
+  }
+  .course:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(46,42,38,0.08); border-color: var(--rose); }
+  .course .tag {
+    align-self: flex-start; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 5px 12px; border-radius: 999px; margin-bottom: 16px;
+  }
+  .tag.seminar { background: rgba(110,139,106,0.16); color: var(--leaf); }
+  .tag.workshop { background: rgba(227,178,60,0.2); color: #9a7414; }
+  .course h3 { font-size: 1.35rem; margin-bottom: 10px; }
+  .course p { color: var(--ink-soft); font-size: 0.97rem; margin-bottom: 18px; flex-grow: 1; }
+  .course .meta { font-size: 0.86rem; color: var(--ink-soft); display: flex; gap: 16px; margin-bottom: 18px; flex-wrap: wrap; }
+  .course .meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .course .book { font-weight: 600; font-size: 0.92rem; }
+  @media (max-width: 680px) { .course-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- ALBUMS ---------- */
+  .albums { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px; }
+  .album {
+    text-align: center; display: block; color: inherit; text-decoration: none;
+    transition: transform 0.2s;
+  }
+  .album:hover { transform: translateY(-3px); text-decoration: none; }
+  .album:hover h4 { color: var(--rose-deep); }
+  .album .cover {
+    aspect-ratio: 1; border-radius: 14px; display: grid; place-items: center;
+    font-family: 'Fraunces', serif; font-size: 2rem; color: #fff; margin-bottom: 12px;
+    box-shadow: 0 8px 20px rgba(46,42,38,0.1);
+  }
+  .album .cover.c1 { background: linear-gradient(135deg, #D98A7A, #C26B5A); }
+  .album .cover.c2 { background: linear-gradient(135deg, #7E9B7A, #5E7B5A); }
+  .album .cover.c3 { background: linear-gradient(135deg, #E3B23C, #C99320); }
+  .album .cover.c4 { background: linear-gradient(135deg, #8AA8C0, #6588A6); }
+  .album .cover.c5 { background: linear-gradient(135deg, #C99BB8, #A876A0); }
+  .album h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1rem; margin-bottom: 2px; }
+  .album span { font-size: 0.84rem; color: var(--ink-soft); }
+  .albums-note { margin-top: 32px; font-size: 0.96rem; color: var(--ink-soft); }
+
+  /* ---------- VIDEOS ---------- */
+  .video-group { margin-bottom: 48px; }
+  .video-group:last-child { margin-bottom: 0; }
+  .video-group h3 {
+    font-size: 1.4rem; margin-bottom: 22px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+  .video {
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 8px 22px rgba(46,42,38,0.1); background: #000;
+  }
+  .video iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; display: block; }
+  .video-feature { max-width: 720px; }
+
+  /* ---------- MATERIALS ---------- */
+  .materials { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+  .material {
+    display: flex; gap: 16px; align-items: center;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px;
+    padding: 20px 22px; transition: border-color 0.2s, transform 0.2s;
+  }
+  .material:hover { border-color: var(--rose); transform: translateY(-2px); text-decoration: none; }
+  .material .ic {
+    flex-shrink: 0; width: 44px; height: 44px; border-radius: 11px;
+    background: rgba(217,138,122,0.16); display: grid; place-items: center;
+    color: var(--rose-deep); font-size: 1.3rem;
+  }
+  .material .txt h4 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; color: var(--ink); margin-bottom: 2px; }
+  .material .txt span { font-size: 0.84rem; color: var(--ink-soft); }
+
+  /* ---------- CONTACT ---------- */
+  .contact { background: var(--ink); color: var(--paper); }
+  .contact .eyebrow { color: var(--gold); }
+  .contact h2 { color: var(--paper); }
+  .contact .section-head p { color: #C9BFB2; }
+  .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 8px; }
+  .ccard {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px; padding: 28px 26px;
+  }
+  .ccard .label { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .ccard a, .ccard p { font-size: 1.18rem; font-family: 'Fraunces', serif; color: var(--paper); }
+  .ccard a:hover { color: var(--rose); }
+
+  /* ---------- FOOTER ---------- */
+  footer { background: var(--ink); color: #9b9088; padding: 32px 0 40px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 0.88rem; }
+  .foot a { color: #9b9088; }
+  .foot a:hover { color: var(--paper); }
+
+  /* ---------- MOBILE NAV ---------- */
+  @media (max-width: 720px) {
+    .nav-toggle { display: block; }
+    .nav-links {
+      position: absolute; top: 68px; left: 0; right: 0;
+      flex-direction: column; gap: 0; background: var(--paper);
+      border-bottom: 1px solid var(--line); padding: 8px 24px 16px;
+      display: none;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto !important; transition: none !important; }
+  }
+
+  :focus-visible { outline: 2.5px solid var(--rose-deep); outline-offset: 3px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">Bärbel Weber</a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="menu">
+      <a href="#ueber">Über mich</a>
+      <a href="#kurse">Seminare</a>
+      <a href="#videos">Videos</a>
+      <a href="#alben">Alben</a>
+      <a href="#material">Material</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-inner">
+      <span class="eyebrow">Musikpädagogin &amp; Kinderchorleiterin</span>
+      <h1>Wo Kinder die <em>Freude</em> am Singen entdecken.</h1>
+      <p class="lede">Lieder und Musicals für Kinder – und praxisnahe Seminare, die Musiklehrkräfte für die eigene Arbeit mit jungen Stimmen begeistern.</p>
+      <div class="btn-row">
+        <a href="#kurse" class="btn btn-primary">Seminare entdecken</a>
+        <a href="#kontakt" class="btn btn-ghost">Kontakt aufnehmen</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <svg class="staff" viewBox="0 0 360 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g stroke="#D9CDBB" stroke-width="1.4">
+          <line x1="0" y1="40" x2="360" y2="40"/>
+          <line x1="0" y1="70" x2="360" y2="70"/>
+          <line x1="0" y1="100" x2="360" y2="100"/>
+          <line x1="0" y1="130" x2="360" y2="130"/>
+          <line x1="0" y1="160" x2="360" y2="160"/>
+        </g>
+        <g fill="#C26B5A">
+          <ellipse cx="70" cy="130" rx="12" ry="9" transform="rotate(-18 70 130)"/>
+          <rect x="80" y="72" width="2.6" height="60"/>
+        </g>
+        <g fill="#6E8B6A">
+          <ellipse cx="150" cy="100" rx="12" ry="9" transform="rotate(-18 150 100)"/>
+          <rect x="160" y="42" width="2.6" height="60"/>
+        </g>
+        <g fill="#E3B23C">
+          <ellipse cx="232" cy="115" rx="12" ry="9" transform="rotate(-18 232 115)"/>
+          <rect x="242" y="57" width="2.6" height="60"/>
+        </g>
+      </svg>
+      <img src="baerbel-weber.jpg" alt="Bärbel Weber" width="884" height="900">
+    </div>
+  </div>
+</section>
+
+<section class="block" id="ueber">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Über mich</span>
+      <h2>Singen verbindet – und trägt ein Leben lang.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Singen begleitet mich mein Leben lang – und seit vielen Jahren gebe ich diese Freude an Kinder weiter: in Chören, in Musicals und auf zahlreichen Aufnahmen beim Fidula-Verlag. Mein Anliegen ist es, dass jedes Kind die eigene Stimme als etwas Wertvolles erlebt.</p>
+        <p>Heute bin ich Teil von <a href="https://www.hortusmk.at/" target="_blank" rel="noopener">Hortus MusiKunst</a>, einem Musikzentrum mitten in Innsbruck, wo Menschen jeden Alters gemeinsam musizieren – vom ersten spielerischen Singen bis zum Chor.</p>
+        <p>Was ich in der Arbeit mit Kinderchören gelernt habe, gebe ich in Seminaren und Workshops an Musiklehrkräfte und Chorleitungen weiter – praxisnah, mit erprobtem Repertoire und vielen Ideen für den direkten Einsatz. Ob Probenaufbau, Stimmbildung mit Kindern oder die Inszenierung eines Musicals: Wir arbeiten an dem, was Sie morgen in Ihrer Gruppe gebrauchen können.</p>
+      </div>
+      <aside class="credentials">
+        <h3>Auf einen Blick</h3>
+        <ul>
+          <li>Mag., Musikpädagogin &amp; Chorleiterin</li>
+          <li>Leitung mehrerer Kinderchöre</li>
+          <li>Zahlreiche CDs mit Liedern &amp; Musicals (Fidula-Verlag)</li>
+          <li>Fortbildnerin für Musiklehrkräfte</li>
+          <li>Hortus MusiKunst, Innsbruck</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="kurse">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Seminare &amp; Workshops</span>
+      <h2>Angebote für Musiklehrkräfte</h2>
+      <p>Alle Formate biete ich für Kollegien, Verbände und Chorleitungen an – als Tagesseminar oder mehrteiligen Workshop. Termine und Konditionen vereinbaren wir individuell.</p>
+    </div>
+    <div class="course-grid">
+
+      <div class="course">
+        <span class="tag seminar">Seminar</span>
+        <h3>Mit Kindern singen lernen</h3>
+        <p>Grundlagen der kindgerechten Stimmbildung: Wie Kinder gesund und mit Freude singen – vom Einsingen bis zum mehrstimmigen Satz.</p>
+        <div class="meta"><span>⏱ Tagesseminar</span><span>👥 bis 25 Personen</span></div>
+        <a href="#kontakt" class="book btn btn-ghost">Anfragen →</a>
+      </div>
+
+      <div class="course">
+        <span class="tag workshop">Workshop</span>
+        <h3>Ein Musical auf die Bühne bringen</h3>
+        <p>Von der Stückauswahl über die Probenplanung bis zur Aufführung – wie ein Kindermusical mit überschaubaren Mitteln gelingt.</p>
+        <div class="meta"><span>⏱ 2 Tage</span><span>👥 bis 20 Personen</span></div>
+        <a href="#kontakt" class="book btn btn-ghost">Anfragen →</a>
+      </div>
+
+      <div class="course">
+        <span class="tag seminar">Seminar</span>
+        <h3>Lebendige Chorprobe</h3>
+        <p>Methoden, die eine Kinderchorprobe abwechslungsreich und konzentriert halten – mit Spielen, Ritualen und Bewegungsideen.</p>
+        <div class="meta"><span>⏱ Halbtags</span><span>👥 bis 30 Personen</span></div>
+        <a href="#kontakt" class="book btn btn-ghost">Anfragen →</a>
+      </div>
+
+      <div class="course">
+        <span class="tag workshop">Workshop</span>
+        <h3>Repertoire für junge Stimmen</h3>
+        <p>Eine praktische Liedwerkstatt: bewährte Lieder, neue Stücke und wie Sie passendes Material für Ihre Gruppe auswählen.</p>
+        <div class="meta"><span>⏱ Tagesworkshop</span><span>👥 bis 25 Personen</span></div>
+        <a href="#kontakt" class="book btn btn-ghost">Anfragen →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="block" id="videos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Videos</span>
+      <h2>Musik in Bewegung</h2>
+      <p>Ein Einblick in die Arbeit – im Gespräch und auf der Bühne. Aufnahmen von Chor- und Instrumentalauftritten sowie Musicals.</p>
+    </div>
+
+    <div class="video-group">
+      <h3>Im Gespräch</h3>
+      <div class="video video-feature">
+        <iframe src="https://www.youtube-nocookie.com/embed/LVihuWTKXaw" title="Interview mit Bärbel Weber" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+
+    <div class="video-group">
+      <h3>Auftritte</h3>
+      <div class="video-grid">
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/HsaQYekTWkU" title="Auftritt" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/axVWzKq9uhY" title="Auftritt" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/xrpwbyah1oU" title="Auftritt" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/yT8-xhOWKbs" title="Auftritt" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/zk-ou8xVoLY" title="Auftritt" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/hFu-6_KI_CE" title="Auftritt" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/UnK__gVGgkc" title="Auftritt" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/ZgY_Pp-Zj8s" title="Auftritt" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/mv4aykzK1X0" title="Auftritt" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="block alt" id="alben">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Diskografie</span>
+      <h2>Lieder &amp; Musicals zum Mitsingen</h2>
+      <p>Rund zehn Alben mit Liedern und Musicals für Kinder – entstanden aus der Arbeit mit echten Chören.</p>
+    </div>
+    <div class="albums">
+      <a class="album" href="https://www.fidula.de/produkt/kinderchor-cd-songs-und-playbacks/" target="_blank" rel="noopener">
+        <div class="cover c1">♪</div><h4>Kinderchor</h4><span>3 Mini-Musicals · CD</span></a>
+      <a class="album" href="https://www.fidula.de/produkt/randolfo-und-der-eine-ton-cd-mit-musicalsongs-und-playbacks/" target="_blank" rel="noopener">
+        <div class="cover c2">♫</div><h4>Randolfo und der eine Ton</h4><span>Waldmusical · CD</span></a>
+      <a class="album" href="https://www.fidula.de/produkt/joerg-ehni-und-uli-fuehre-luzi-hat-was-gegen-weihnachten-song-cd/" target="_blank" rel="noopener">
+        <div class="cover c3">♬</div><h4>Luzi hat was gegen Weihnachten</h4><span>Weihnachtsmusical · CD</span></a>
+      <a class="album" href="https://www.fidula.de/produkt/bienenstark-cd/" target="_blank" rel="noopener">
+        <div class="cover c4">♩</div><h4>Bienenstark</h4><span>Grundschulmusical · CD</span></a>
+      <a class="album" href="https://www.fidula.de/produkt/mitternacht-auf-schauerstein-schulmusical-cd-songs-und-playbacks/" target="_blank" rel="noopener">
+        <div class="cover c5">♪</div><h4>Mitternacht auf Schauerstein</h4><span>Grusical · CD</span></a>
+      <a class="album" href="https://www.fidula.de/produkt/eineillustregesellschaft-schulmusical-cd-songs-und-playbacks/" target="_blank" rel="noopener">
+        <div class="cover c2">♫</div><h4>Eine illustre Gesellschaft</h4><span>Schulmusical · CD</span></a>
+    </div>
+    <p class="albums-note">Alle Aufnahmen sind beim <a href="https://www.fidula.de/" target="_blank" rel="noopener">Fidula-Verlag</a> erhältlich – auf die Titel klicken, um direkt zur jeweiligen CD zu gelangen.</p>
+  </div>
+</section>
+
+<section class="block" id="material">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Zum Download</span>
+      <h2>Material für Ihre Arbeit</h2>
+      <p>Liedlisten, Probenpläne und Begleitmaterial zum Herunterladen.</p>
+    </div>
+    <div class="materials">
+      <a href="[link.pdf]" class="material">
+        <div class="ic">↓</div>
+        <div class="txt"><h4>Liedliste Kinderchor</h4><span>PDF · [Größe]</span></div>
+      </a>
+      <a href="[link.pdf]" class="material">
+        <div class="ic">↓</div>
+        <div class="txt"><h4>Probenplan-Vorlage</h4><span>PDF · [Größe]</span></div>
+      </a>
+      <a href="[link.pdf]" class="material">
+        <div class="ic">↓</div>
+        <div class="txt"><h4>Seminarübersicht</h4><span>PDF · [Größe]</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="block contact" id="kontakt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Kontakt</span>
+      <h2>Lassen Sie uns sprechen.</h2>
+      <p>Sie möchten ein Seminar buchen oder haben eine Frage zu meinen Alben? Schreiben Sie mir oder rufen Sie an – ich melde mich gern zurück.</p>
+    </div>
+    <div class="contact-cards">
+      <div class="ccard">
+        <div class="label">E-Mail</div>
+        <a href="mailto:kichorweber@gmail.com">kichorweber@gmail.com</a>
+      </div>
+      <div class="ccard">
+        <div class="label">Telefon</div>
+        <a href="tel:+436803043523">+43 680 30 43 523</a>
+      </div>
+      <div class="ccard">
+        <div class="label">Musikzentrum</div>
+        <p><a href="https://www.hortusmk.at/" target="_blank" rel="noopener">Hortus MusiKunst</a><br>Innsbruck</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year"></span> Bärbel Weber · Musikpädagogin &amp; Kinderchorleiterin</span>
+    <span><a href="recht.html">Impressum</a> · <a href="recht.html#datenschutz">Datenschutz</a></span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('menu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', false);
+  }));
+</script>
+
+</body>
+</html>

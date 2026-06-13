@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seite nicht gefunden – Bärbel Weber</title>
+<meta name="robots" content="noindex">
+<style>
+  @font-face {
+    font-family: 'Inter'; font-style: normal; font-weight: 400 600;
+    font-display: swap; src: url('/fonts/InterVariable.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Fraunces'; font-style: normal; font-weight: 400 600;
+    font-display: swap; src: url('/fonts/Fraunces.woff2') format('woff2');
+  }
+  :root {
+    --paper: #FBF6EE; --paper-2: #F4EADB; --ink: #2E2A26; --ink-soft: #5C544B;
+    --rose: #D98A7A; --rose-deep: #C26B5A; --leaf: #6E8B6A; --gold: #E3B23C; --line: #E0D3C0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif; background: var(--paper); color: var(--ink);
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 32px; -webkit-font-smoothing: antialiased;
+    background:
+      radial-gradient(800px 460px at 78% -10%, rgba(227,178,60,0.16), transparent 60%),
+      radial-gradient(640px 420px at 10% 120%, rgba(110,139,106,0.14), transparent 60%);
+  }
+  h1, h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; }
+  .code { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose-deep); margin-bottom: 18px; }
+  h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); margin-bottom: 16px; }
+  p { font-size: 1.12rem; color: var(--ink-soft); max-width: 460px; margin: 0 auto 32px; line-height: 1.6; }
+  .btn {
+    display: inline-block; padding: 13px 28px; border-radius: 999px; font-weight: 600; font-size: 0.96rem;
+    background: var(--rose-deep); color: #fff; text-decoration: none;
+    box-shadow: 0 6px 18px rgba(194,107,90,0.32); transition: transform 0.18s, box-shadow 0.18s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(194,107,90,0.4); }
+  .staff { width: 220px; max-width: 70%; margin-bottom: 36px; opacity: 0.9; }
+  @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+  :focus-visible { outline: 2.5px solid var(--rose-deep); outline-offset: 3px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+  <svg class="staff" viewBox="0 0 360 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#D9CDBB" stroke-width="1.4">
+      <line x1="0" y1="20" x2="360" y2="20"/>
+      <line x1="0" y1="45" x2="360" y2="45"/>
+      <line x1="0" y1="70" x2="360" y2="70"/>
+      <line x1="0" y1="95" x2="360" y2="95"/>
+      <line x1="0" y1="120" x2="360" y2="120"/>
+    </g>
+    <g fill="#C26B5A">
+      <ellipse cx="70" cy="95" rx="11" ry="8" transform="rotate(-18 70 95)"/>
+      <rect x="79" y="48" width="2.4" height="48"/>
+    </g>
+    <g fill="#6E8B6A">
+      <ellipse cx="150" cy="70" rx="11" ry="8" transform="rotate(-18 150 70)"/>
+      <rect x="159" y="24" width="2.4" height="47"/>
+    </g>
+    <g fill="#E3B23C">
+      <ellipse cx="232" cy="82" rx="11" ry="8" transform="rotate(-18 232 82)"/>
+      <rect x="241" y="36" width="2.4" height="47"/>
+    </g>
+  </svg>
+
+  <div class="code">Fehler 404</div>
+  <h1>Diese Seite ist leider verklungen.</h1>
+  <p>Die gewünschte Seite konnte nicht gefunden werden. Vielleicht hat sich der Link geändert oder enthält einen Tippfehler.</p>
+  <a href="/" class="btn">Zurück zur Startseite</a>
+
+</body>
+</html>
